@@ -1,0 +1,41 @@
+defaults:
+  - agent: rl_vlm
+  - agent/rl_vlm/training: ppo_vlm
+  - agent/rl_vlm/obs_configs: birdview
+  - test_suites: eu_data
+actors:
+  hero:
+    driver: rl_vlm
+    reward:
+      entry_point: reward.valeo_action:ValeoAction
+      kwargs:
+        neglect_rl_stop: false
+    terminal:
+      entry_point: terminal.valeo_no_det_px:ValeoNoDetPx
+      kwargs:
+        eval_mode: true
+        neglect_rl_stop: false
+save_to_wandb: false
+dataset_root: null
+ev_id: hero
+inject_noise: false
+n_episodes: 2
+resume: false
+carla_sh_path: null
+log_level: INFO
+host: localhost
+port: 2050
+seed: 2021
+no_rendering: false
+kill_running: true
+wb_project: found_rl
+wb_name: null
+wb_notes: null
+wb_group: null
+wb_tags: null
+log_video: true
+
+# '/home/sky-lab/qys/RWKV_RL_CLEAN/outputs/2025-11-19-roach/12-31-22/ckpt/ckpt_4964352.zip'
+local_ckpt_path: '/path/to/rl/ckpt.zip'
+light_always_green: false
+disbale_bg_actors: false

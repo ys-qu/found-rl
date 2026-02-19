@@ -1,0 +1,37 @@
+defaults:
+  - agent: rl_vlm
+  - agent/rl_vlm/policy: ppo_xtma_gaus
+  - agent/rl_vlm/training: ppo_vlm
+  - agent/rl_vlm/obs_configs: birdview
+  - test_suites: lb_data
+actors:
+  hero:
+    agent: rl_vlm
+    reward:
+      entry_point: reward.valeo_action:ValeoAction
+      kwargs: {neglect_rl_stop: false}
+    terminal:
+      entry_point: terminal.valeo_no_det_px:ValeoNoDetPx
+      kwargs: {neglect_rl_stop: false}
+ev_id: hero
+carla_sh_path: /workspace/CARLA/CarlaUE4.sh
+total_timesteps: 1e6  # 1e6
+seed: 2022
+kill_running: true
+dummy: false
+wb_project: train_rl_asycn_vlm
+wb_name: null
+wb_notes: null
+wb_tags: null
+curriculum: false
+port: 2050
+
+#!!!!!!
+start_llm_server: false
+llm_model_path: "path/to/internvl3_1b_full_sft_bev" #"/home/sky-lab/qys/internvl3_1b_full_sft_bev"
+
+start_clip_server: true
+clip_model_path: 'path/to/clip_laion2b_epoch_10_new.pt'
+
+light_always_green: false  # same as neglect_rl_stop, only use when red lr makes the learning too difficult
+disbale_bg_actors: false

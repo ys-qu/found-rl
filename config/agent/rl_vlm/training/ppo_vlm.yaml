@@ -1,0 +1,33 @@
+# @package _group_
+entry_point: agents.rl_vlm.models.ppo:PPOVlm
+kwargs:
+  learning_rate: 1e-4
+  n_steps: 2048
+  batch_size: 256
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  clip_range_vf: null
+  normalize_advantage: true
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  target_kl: 0.02
+  use_vlm: &use_vlm false
+  imitation_coef: 0.5
+  explore_coef: 0.05
+  verbose: 1
+  device: "auto"
+  rollout_buffer_class: agents.rl_vlm.models.rollout_buffer:RolloutBufferVlm
+  rollout_buffer_kwargs:
+    use_vlm: *use_vlm
+  policy_kwargs:
+    features_extractor_class: agents.rl_vlm.models.torch_layers:LiteXtMaCNN
+    features_extractor_kwargs:
+      features_dim: 256
+      states_neurons: [ 256,256 ]
+    normalize_images: false
+    squash_output: false
+    use_beta: true
+#  use_sde: true

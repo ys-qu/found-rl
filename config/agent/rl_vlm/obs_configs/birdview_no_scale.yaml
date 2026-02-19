@@ -1,0 +1,31 @@
+# @package _group_
+birdview:
+  module: birdview.chauffeurnet
+#  width_in_pixels: 192
+#  pixels_ev_to_bottom: 40
+#  pixels_per_meter: 5.0
+  width_in_pixels: 128
+  pixels_ev_to_bottom: 26.6667  # 40 * (128/192)
+  pixels_per_meter: 3.3333
+  history_idx: [-16, -11, -6, -1]
+  scale_bbox: false
+  scale_mask_col: 1.1
+speed:
+  module: actor_state.speed
+control:
+  module: actor_state.control
+velocity:
+  module: actor_state.velocity
+
+gnss:
+  module: navigation.gnss
+central_rgb:
+  module: camera.rgb
+  fov: 90
+  width: 640
+  height: 360
+  location: [1.0, 0.0, 1.5]
+  rotation: [0.0, 0.0, 0.0]
+route_plan:
+  module: navigation.waypoint_plan
+  steps: 20

@@ -1,0 +1,38 @@
+# @package _group_
+entry_point: agents.rl_vlm.models.td3:TD3Vlm
+kwargs:
+  learning_rate: 1e-4
+  buffer_size: 150_000
+  learning_starts: 1024
+  batch_size: 256
+  tau: 0.005
+  gamma: 0.99
+  train_freq: 1
+  gradient_steps: 1
+  optimize_memory_usage: false  # DictReplayBuffer doesn't support it
+  policy_delay: 2
+  target_policy_noise: 0.2
+  target_noise_clip: 0.5
+  tensorboard_log: null
+  verbose: 1
+  device: "auto"
+  use_vlm: &use_vlm ''
+  imitation_coef: 0.1
+  replay_buffer_class: agents.rl_vlm.models.replay_buffer:DictReplayBufferVlm
+  replay_buffer_kwargs:
+    handle_timeout_termination: true  # false if optimize_memory_usage: true
+    use_vlm: *use_vlm
+    use_prioritized: false
+    n_steps: 1        # Enable 3-step returns for better credit assignment
+    gamma: 0.99       # Discount factor for n-step returns
+  policy_kwargs:
+    features_extractor_class: agents.rl_vlm.models.torch_layers:LiteXtMaCNN
+    features_extractor_kwargs:
+      features_dim: 256
+      states_neurons: [256,256]
+#  use_aug: false
+#  # Action noise decay parameters
+#  initial_noise_sigma: 0.1
+#  final_noise_sigma: 0.05
+#  noise_decay_steps: 200_000
+

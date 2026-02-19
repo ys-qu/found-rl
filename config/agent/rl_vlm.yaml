@@ -1,0 +1,12 @@
+# @package _group_
+rl_vlm:
+  entry_point: agents.rl_vlm.rl_vlm_agent:RlVlmAgent
+  wb_run_path: null
+  wb_ckpt_step: null
+  env_wrapper:
+    entry_point: agents.rl_vlm.utils.rl_vlm_wrapper:RlVlmWrapper
+    kwargs:
+      input_states: [control, vel_xy, traffic_light, stop_sign]  # control, vel_xy, traffic_light, stop_sign
+      acc_as_action: True
+      birdview_key: 'masks'  # choices {'masks', 'rendered'}
+      compress_size: [96, 96]  # none, [96, 96], [192, 192]

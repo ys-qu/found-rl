@@ -1,0 +1,48 @@
+defaults:
+  - agent: rl_vlm
+  - agent/rl_vlm/training: ppo_vlm
+  - agent/rl_vlm/obs_configs: birdview
+  - test_suites: eu_data
+actors:
+  hero:
+    driver: rl_vlm
+    coach: null
+    reward:
+      entry_point: reward.valeo_action:ValeoAction
+      kwargs: 
+        neglect_rl_stop: false
+    terminal:
+      entry_point: terminal.valeo_no_det_px:ValeoNoDetPx
+      kwargs:
+        eval_mode: true
+        neglect_rl_stop: false
+
+remove_final_steps: true
+alpha_coach: null
+save_to_wandb: false
+dataset_root: null
+ev_id: hero
+inject_noise: false
+n_episodes: 2
+resume: false
+carla_sh_path: null
+log_level: INFO
+host: localhost
+port: 2000
+seed: 2021
+no_rendering: false
+kill_running: true
+wb_project: found_rl
+wb_name: null
+wb_notes: null
+wb_group: null
+wb_tags: null
+log_video: true
+
+# model_name_or_path can be either a HuggingFace model name or a local path
+# Examples:
+# model_name_or_path: 'Qwen/Qwen2.5-VL-3B-Instruct'  # HuggingFace model
+# model_name_or_path: ${VLM_MODEL_PATH}  # Local path - set VLM_MODEL_PATH environment variable
+model_name_or_path: '/path/to/vlm/folder'
+light_always_green: false
+disbale_bg_actors: false

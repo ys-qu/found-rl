@@ -1,0 +1,31 @@
+stable-baselines3
+pytorch-lightning==1.9.5
+# deepspeed==0.7.0
+numpy==1.23.5
+pydantic==1.10.13
+gym
+matplotlib
+pybullet
+h5py
+accelerate
+wandb
+ninja
+pytz
+timm
+transformers==4.52.4
+imageio
+open_clip_torch
+opencv-python
+shapely
+scipy
+shimmy>=2.0
+ruamel.yaml
+tensorboard
+
+# eval env
+hydra-core
+omegaconf
+qwen_vl_utils
+
+# simulators
+carla==0.9.15
