@@ -33,6 +33,7 @@ This project integrates foundation models, especially vision-language models (VL
 
 - 🚗 **Multiple RL Algorithms**: Support for DrQv2, SAC, TD3, PPO, and DDPG (but only DrQv2 and SAC support learning from VLM feedback)
 - 🤖 **Foundation Model Integration**: Seamless integration with fine-tuned VLM experts (Visual RWKV, Qwen, InternVL, CLIP, etc.)
+- 🎮 **VLM Action Guidance**: VMR and AWAG for explicit action guidances from VLMs
 - 🎯 **CLIP Reward Shaping**: Safety-aware reward bonuses (it learns from implicit guidance, but the performance is as good as explicit action guidance)
 - ⚡ **Asynchronous Batch Processing**: Efficient asynchronous batch inference for VLM requests
 - 📊 **Comprehensive Evaluation**: Support for multiple CARLA benchmarks (Leaderboard, NoCrash, etc.)
