@@ -7,6 +7,7 @@ This repository contains the official implementation of our paper on foundation 
 **Code**: [GitHub Repository](https://github.com/ys-qu/found-rl)  
 **Dataset**: [🤗 HuggingFace Dataset](https://huggingface.co/datasets/ys-qu/found-rl_dataset)  
 **VLMs**: [🤗 HuggingFace VLMs](https://huggingface.co/ys-qu/found-rl_vlms)
+
 **Final RL checkpoints**: [🤗 HuggingFace Final RL checkpoints](https://huggingface.co/ys-qu/found-rl_checkpoints)
 
 ## Authors
