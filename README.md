@@ -3,9 +3,13 @@
 This repository contains the official implementation of our paper on foundation model-enhanced reinforcement learning for autonomous driving in CARLA.
 
 **Paper**: [Found-RL: foundation model-enhanced reinforcement learning for autonomous driving](https://arxiv.org/abs/2602.10458)  
+
 **Website**: [https://ys-qu.github.io/found-rl-website/](https://ys-qu.github.io/found-rl-website/)  
+
 **Code**: [GitHub Repository](https://github.com/ys-qu/found-rl)  
+
 **Dataset**: [🤗 HuggingFace Dataset](https://huggingface.co/datasets/ys-qu/found-rl_dataset)  
+
 **VLMs**: [🤗 HuggingFace VLMs](https://huggingface.co/ys-qu/found-rl_vlms)
 
 **Final RL checkpoints**: [🤗 HuggingFace Final RL checkpoints](https://huggingface.co/ys-qu/found-rl_checkpoints)
